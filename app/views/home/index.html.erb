@@ -1,2 +1,9 @@
-<%= callback_facebook_url %>
-<%= link_to "Log In", new_facebook_path %>
+<div class="avatar">
+  <fb:profile-pic uid="<%= current_user.try(:identifier) %>" size="normal" facebook-logo="true"></fb:profile-pic>
+</div>
+
+<% if authenticated? %>
+  <p><%= link_to "Logout", facebook_path, :method => :delete %></p>
+<% else %>
+  <div class="fb-login-button" onlogin="location.href = '<%= facebook_path %>'" scope="<%= Facebook.config[:scope] %>"></div>
+<% end %>

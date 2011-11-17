@@ -15,19 +15,33 @@
 
   </head>
   <body>
-    <div class="container">
+    <div id="fb-root" class="container">
       <div class="main">
         <%= yield %>
       </div>
     </div>
-    <script src="http://connect.facebook.net/en_US/all.js"></script>
-    <script>
-      FB.init({
-        appId: "<%= Facebook.config[:client_id] %>",
-        cookie: true,
-        xfbml: true,
-        oauth: true
-      });
-    </script>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '<%= Facebook.config[:client_id] %>', // App ID
+      channelURL : '//localhost:3000/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      oauth      : true, // enable OAuth 2.0
+      xfbml      : true  // parse XFBML
+    });
+
+    // Additional initialization code here
+  };
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+         js = d.createElement('script'); js.id = id; js.async = true;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         d.getElementsByTagName('head')[0].appendChild(js);
+   }(document));
+  </script>
   </body>
 </html>

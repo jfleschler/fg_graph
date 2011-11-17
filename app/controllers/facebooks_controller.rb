@@ -9,7 +9,7 @@ class FacebooksController < ApplicationController
   def show
     auth = Facebook.auth.from_cookie(cookies)
     authenticate Facebook.identify(auth.user)
-    redirect_to dashboard_url
+    redirect_to root_url #dashboard_url
   end
 
   # handle Normal OAuth flow: start

@@ -1,0 +1,16 @@
+<section class='dashboard'>
+  <h2>Hello <%= FbGraph::User.fetch("#{current_user.identifier}").name %>!</h2>
+  
+</nav>
+
+<script>
+$(function () {
+  $('#app_request').click(function () {
+    FB.ui({
+      method: 'apprequests',
+      message: 'You should learn more about this awesome game.',
+      data: 'tracking information for the user'
+    });
+  });
+});
+</script>
