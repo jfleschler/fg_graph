@@ -1,0 +1,11 @@
+developement: &defaults
+  client_id: 287814087908225
+  client_secret: c1984d555b20012fbcc394955d5a3a50
+  scope: user_about_me,user_activities,user_birthday,user_education_history,user_events,user_groups
+  canvas_url: http://apps.facebook.com/fb-graph-sample-dev
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
