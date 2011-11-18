@@ -1,4 +1,5 @@
 # This file is used by Rack-based servers to start the application.
-use Rack::FacebookRedirect
+
 require ::File.expand_path('../config/environment',  __FILE__)
+use Rack::FacebookRedirect
 run FbGraphApp::Application
