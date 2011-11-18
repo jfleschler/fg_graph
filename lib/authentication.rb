@@ -20,7 +20,7 @@ module Authentication
       current_user.profile.friends.each do |friend|
         friends << friend.identifier
       end
-      @friends_on_app = Facebook.find_by_identifier(friends)
+      @friends_on_app = Facebook.find_all_by_identifier(friends)
     end
 
     def authenticated?
