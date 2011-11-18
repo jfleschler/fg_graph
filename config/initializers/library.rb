@@ -1,1 +1,1 @@
-require 'Authentication'
+require Authentication
