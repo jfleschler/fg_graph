@@ -15,6 +15,14 @@ module Authentication
       nil
     end
 
+    def friends_on_app
+      friends = []
+      current_user.profile.friends.each do |friend|
+        friends << friend.identifier
+      end
+      @friends_on_app = Facebook.find_by_identifier(friends)
+    end
+
     def authenticated?
       !current_user.blank?
     end

@@ -7,6 +7,8 @@ class CanvasController < ApplicationController
     @auth = Facebook.auth.from_signed_request(params[:signed_request])
     if @auth.authorized?
       authenticate Facebook.identify(@auth.user)
+
+      #@friends = @auth.user.friends
       render :show
     else
       render :authorize
