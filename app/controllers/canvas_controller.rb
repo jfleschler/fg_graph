@@ -9,7 +9,7 @@ class CanvasController < ApplicationController
       authenticate Facebook.identify(@auth.user)
 
       @friends = []
-      Facebook.friends_on_app.each do |friend|
+      friends_on_app.each do |friend|
         @friends << FbGraph::User.fetch(friend.identifier)
       end
       
