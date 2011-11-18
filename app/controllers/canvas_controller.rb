@@ -8,7 +8,11 @@ class CanvasController < ApplicationController
     if @auth.authorized?
       authenticate Facebook.identify(@auth.user)
 
-      #@friends = @auth.user.friends
+      @friends = []
+      Facebook.friends_on_app.each do |friend|
+        @friends << FbGraph::User.fetch(friend.identifier)
+      end
+      
       render :show
     else
       render :authorize

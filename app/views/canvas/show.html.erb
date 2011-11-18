@@ -3,7 +3,7 @@
 </article>
 
 <% unless friends_on_app.nil? %>
-  <% friends_on_app.each do |friend_id| %>
-    <div><fb:name uid='<%= friend_id %>' useyou='false'></fb:name></div>
+  <% @friends.each do |friend| %>
+    <div><%= friend.name %></div>
   <% end %>
 <% end %>
