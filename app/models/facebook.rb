@@ -16,7 +16,7 @@ class Facebook < ActiveRecord::Base
           :canvas_url    => ENV['fb_canvas_url']
         }
       else
-        YAML.load_file("#{Rails.root}/config/facebook.yml")["production"].symbolize_keys
+        YAML.load_file("#{Rails.root}/config/facebook.yml")[Rails.env].symbolize_keys
       end
     rescue Errno::ENOENT => e
       raise StandardError.new("config/facebook.yml could not be loaded.")

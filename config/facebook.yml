@@ -1,11 +1,14 @@
-developement: &defaults
-  client_id: 287814087908225
-  client_secret: c1984d555b20012fbcc394955d5a3a50
+development: &defaults
+  client_id: 263338923714033
+  client_secret: a2fc41adc5c218f7d546f4a55bfe48e0
   scope: user_about_me,user_activities,user_birthday,user_education_history,user_events,user_groups
-  canvas_url: http://apps.facebook.com/fb-graph-sample-dev
+  canvas_url: http://apps.facebook.com/rcp_dev/
 
 test:
   <<: *defaults
 
 production:
-  <<: *defaults
+  client_id: 287814087908225
+  client_secret: c1984d555b20012fbcc394955d5a3a50
+  scope: user_about_me,user_activities,user_birthday,user_education_history,user_events,user_groups
+  canvas_url: http://apps.facebook.com/rcp_app/
