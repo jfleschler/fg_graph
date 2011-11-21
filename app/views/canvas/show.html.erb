@@ -1,13 +1,25 @@
-<article class='canvas'>
-  <h2>Hello <fb:name uid='<%= current_user.identifier %>' useyou='false'></fb:name>!</h2>
+<article class='canvas' >
+  <div class='row' >
+    <div class='span1'>
+      <div class="fb-profile-pic" uid="<%= current_user.try(:identifier) %>" size="square" ></div>
+    </div>
+    <div class='span5'>
+      <%= current_user.profile.name %>
+    </div>
+  </div>
 
-
-  <div class="fb-profile-pic" uid="<%= current_user.try(:identifier) %>" size="square" ></div>
 <% unless @friends.nil? %>
   <% @friends.each do |friend| %>
-  <div class="fb-profile-pic" uid="<%= friend.try(:identifier) %>" size="square" ></div>
-   
-  <% end %>
-<% end %>
+    
 
+
+  <div class='row' >
+    <div class='span1'>
+      <div class="fb-profile-pic" uid="<%= friend.try(:identifier) %>" size="square" ></div>
+    </div>
+    <div class='span5'>
+      <%= friend.profile.name %>
+    </div>
+  <% end %>
+  <% end %>
 </article>
