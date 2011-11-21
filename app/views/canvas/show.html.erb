@@ -1,9 +1,13 @@
 <article class='canvas'>
   <h2>Hello <fb:name uid='<%= current_user.identifier %>' useyou='false'></fb:name>!</h2>
-</article>
 
+
+  <div class="fb-profile-pic" uid="<%= current_user.try(:identifier) %>" size="square" ></div>
 <% unless @friends.nil? %>
   <% @friends.each do |friend| %>
-    <div><%= friend.name %></div>
+  <div class="fb-profile-pic" uid="<%= friend.try(:identifier) %>" size="square" ></div>
+   
   <% end %>
 <% end %>
+
+</article>
